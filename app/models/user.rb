@@ -15,10 +15,15 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              ("username") UNIQUE
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+         has_many  :books, class_name: "Book", foreign_key: "user_id", dependent: :destroy 
+         has_many  :users_books, class_name: "Follow", foreign_key: "user_id", dependent: :destroy
+         has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
 end
