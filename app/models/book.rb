@@ -14,5 +14,7 @@
 #  user_id      :integer          not null
 #
 class Book < ApplicationRecord
-  
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
+
+  has_many  :users_books, class_name: "Follow", foreign_key: "book_id", dependent: :destroy
 end
