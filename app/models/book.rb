@@ -18,5 +18,5 @@ class Book < ApplicationRecord
 
   has_many  :users_books, class_name: "Follow", foreign_key: "book_id", dependent: :destroy
 
-  #has_many :commentable, class_name: "book", foreign_key: ""
+  has_many :comments, as: :commentable
 end
