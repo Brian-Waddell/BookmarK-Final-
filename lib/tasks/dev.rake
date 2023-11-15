@@ -6,17 +6,20 @@ namespace :dev do
     "db:create",
     "db:migrate",
     "db:seed",
-    "dev:sample_data"
+    "dev:sample_data",
+
   ]
 
   desc "Adds sample data for development environment"
   task sample_data: [
-  :environment, 
-  "dev:add_users",
-  "dev:add_books"] do
-    puts "sample data"
+    :environment, 
+    "dev:add_users",
+    "dev:add_books[50]"
+    ] do
+    puts " done adding sample data"
     # TODO
   end
+
   task add_users: :environment do 
 
     names = ["brian", "alice", "bob", "calvin"]
@@ -28,9 +31,12 @@ namespace :dev do
         password: "password"
       )
       puts "added #{u.email}"
+    end
+    puts "done"
   end
-  task add_books: :environment do 
-    
+
+  task :add_books, [:number] => [:environment] do  |t, args|
+    puts args.fetch(:number)
   end 
-end 
+
 end 
