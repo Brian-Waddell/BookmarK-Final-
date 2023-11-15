@@ -10,13 +10,27 @@ namespace :dev do
   ]
 
   desc "Adds sample data for development environment"
-  task sample_data: [:environment, "dev:add_users"] do
-    puts "Adding sample data"
+  task sample_data: [
+  :environment, 
+  "dev:add_users",
+  "dev:add_books"] do
+    puts "sample data"
     # TODO
   end
-  taks add_users: :enviornment do 
+  task add_users: :environment do 
 
-    puts "Adding users"
+    names = ["brian", "alice", "bob", "calvin"]
+
+    names.each do |name|
+      u = User.create(
+        email: "#{name}@example.com",
+        username: name,
+        password: "password"
+      )
+      puts "added #{u.email}"
+  end
+  task add_books: :environment do 
+    
   end 
-
-end
+end 
+end 
