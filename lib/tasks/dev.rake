@@ -37,12 +37,14 @@ namespace :dev do
 
   task add_books: :environment do
     50.times do |i| 
+
       b = Book.create(
         user_id: User.all.sample.id,
         title: Faker::Book.title,
         summary: Faker::Lorem.sentence,
         author: Faker::Book.author, 
-        genre: Faker::Book.genre
+        genre: Faker::Book.genre,
+       
       )
     end 
   end 
@@ -62,6 +64,7 @@ namespace :dev do
           body: Faker::Movies::HarryPotter.quote,
           commentable_type: commentable.class.name, 
           commentable_id: commentable.id,
+          book_id: Book.all.sample.id
         )
       end
 
