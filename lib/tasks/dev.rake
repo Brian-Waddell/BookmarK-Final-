@@ -49,10 +49,19 @@ namespace :dev do
     end 
   end 
 
-   taak add_comments: :environment do 
-    puts "adding comments"
-    Book.all.each do|b|
-      rand(1..5).times do |i|
-
-
+   task add_comments: :environment do 
+      puts "adding comments"
+      Book.all.each do|b|
+        rand(1...5).times do
+          c = Comment.create(
+            user_id: User.all.sample.id,
+            body: Faker::Movies::HarryPotter.quote,
+            commentable_type: Faker::Books::Dune.quote,
+            commentable_id: b.user_id,
+            )
+        end
+      end 
+    end 
+    puts "The end"
+  end 
 end 
