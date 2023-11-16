@@ -56,7 +56,7 @@ namespace :dev do
           c = Comment.create(
             user_id: User.all.sample.id,
             body: Faker::Movies::HarryPotter.quote,
-            commentable_type: Faker::Books::Dune.quote,
+            commentable_type: Book || Comment, 
             commentable_id: b.user_id,
             )
         end
