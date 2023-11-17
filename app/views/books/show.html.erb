@@ -3,11 +3,17 @@
 <%= render @book %>
 
 <h2>Comments About <%= @book.title %></h2>
+<ul class="list-group list-group-flush">
+  <% @book.comments.each do |comment| %>
+    <div class= "card" >
+    <div class= "card-body">
+      <p><%= comment.body %></p>
+    </div>
+    </div>
+  <% end %>
+</ul>
 
-<% @book.comments.each do |comment| %>
-  <p><%= comment.body %></p>
-<% end %>
-
+<%= render "comments/form", comment: @book.comments.build %>
 
 
 <div>
@@ -17,4 +23,3 @@
 
   <%= button_to "Destroy this book", @book, method: :delete %>
 </div>
-

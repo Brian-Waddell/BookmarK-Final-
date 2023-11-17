@@ -51,7 +51,7 @@ namespace :dev do
 
    task add_comments: :environment do 
       puts "adding comments"
-      25.times do |i|
+      50.times do |i|
         commentable = nil
         if i.odd?
           commentable = Comment.all.sample
