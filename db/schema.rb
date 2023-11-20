@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_16_221309) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_14_222922) do
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
     t.string "author", null: false
@@ -30,7 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_221309) do
     t.datetime "updated_at", null: false
     t.string "commentable_type", null: false
     t.integer "commentable_id", null: false
-    t.integer "book_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
   end
 

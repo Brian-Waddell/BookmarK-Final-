@@ -24,7 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many  :books, class_name: "Book", foreign_key: "user_id", dependent: :destroy 
-         has_many  :users_books, class_name: "Follow", foreign_key: "user_id", dependent: :destroy
-         has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
+  has_many  :books, class_name: "Book", foreign_key: "user_id", dependent: :destroy
+  has_many  :following, class_name: "Follow", foreign_key: "user_id", dependent: :destroy
+  has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
 end

@@ -63,8 +63,7 @@ namespace :dev do
           user_id: User.all.sample.id,
           body: Faker::Movies::HarryPotter.quote,
           commentable_type: commentable.class.name, 
-          commentable_id: commentable.id,
-          book_id: Book.all.sample.id
+          commentable_id: commentable.id
         )
       end
 
