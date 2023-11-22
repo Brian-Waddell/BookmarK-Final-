@@ -28,4 +28,8 @@ class Comment < ApplicationRecord
       commentable
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil )
+    ["user_id", "commentable_id"]
+  end 
 end

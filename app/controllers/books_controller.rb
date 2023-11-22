@@ -11,6 +11,8 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    @q = Comment.ransack(params[:q])
+    @results = @q.result.includes(:user_id, :commentable_id)
   end
 
   # GET /books/new
