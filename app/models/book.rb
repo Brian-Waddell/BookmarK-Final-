@@ -17,4 +17,8 @@ class Book < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   has_many  :followers, class_name: "Follow", foreign_key: "book_id", dependent: :destroy
   has_many :comments, as: :commentable
+
+  def self.ransackable_attributes(auth_object = nil )
+    ["title"]
+  end 
 end
