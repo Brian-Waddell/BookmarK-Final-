@@ -88,7 +88,7 @@ test:
 #
 production:
   <<: *default
-  adapter: sqlite3 #postgresql
+  adapter: postgresql
   encoding: unicode
   database: bookmark_server
   username: bookmark_server_user
