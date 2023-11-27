@@ -21,8 +21,12 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: sqlite3 #postgresql #sqlite3
+  encoding: unicode
+  database: bookmark_server
+  #username:  <%= ENV.fetch("bookmark_server_user") { 5 } %>
+  #password:  <%= ENV.fetch("RAILS_TEMPLATE_DATABASE_PASSWORD") { 5 } %>
+  #url:  <%= ENV.fetch("PG_DATABASE_URLS") { 5 } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -84,7 +88,9 @@ test:
 #
 production:
   <<: *default
-  database: rails_template_production
-  username: rails_template
+  adapter: postgresql
+  encoding: unicode
+  database: bookmark_server
+  username: bookmark_server_user
   password: <%= ENV["RAILS_TEMPLATE_DATABASE_PASSWORD"] %>
   url: <%= ENV["DATABASE_URL"] %>
