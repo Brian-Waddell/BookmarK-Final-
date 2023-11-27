@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @book %>
+<hr>
+
+<%= search_form_for @q do |f|%>
+  <div>
+    <%= f.label :user_id_cont, "Username containing"%>
+    <%= f.text_field :user_id_cont, :placeholder => "Enter a user" %>
+  </div>
+  <div>
+    <% f.hidden_field :commentable_id, value: @book.id%>
+  </div>
+
+<%= f.submit :class => "btn btn-primary btn-block" %> 
+
+<a href="/books"> Clear filers </a> 
+<% end %>
+
+<h2>Comments About <%= @book.title %></h2>
+<ul class="list-group list-group-flush">
+  <% @book.comments.each do |comment| %>
+  <li class ="list-group-item">
+    <div class= "card" >
+    <div class= "card-body">
+      <p><%= comment.body %></p>
+    </div>
+    </div>
+  <% end %>
+</ul>
+
+<h3> Add a comment </h3>
+<%= render "comments/form", comment: @book.comments.build %>
+
+
+<div>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+  
+
+  <%= button_to "Destroy this book", @book, method: :delete %>
+</div>

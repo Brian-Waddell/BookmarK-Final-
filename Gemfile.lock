@@ -117,6 +117,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     diffy (3.4.2)
+    dockerfile-rails (1.5.12)
+      rails (>= 3.0.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -343,7 +345,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.2-x86_64-linux)
+    sqlite3 (1.6.9-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     table_print (1.5.7)
@@ -411,6 +413,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dockerfile-rails (>= 1.5)
   dotenv-rails
   draft_generators
   draft_matchers
@@ -426,6 +429,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-erd
   rails_db
+  ransack
   redis (~> 4.0)
   rspec-html-matchers
   rspec-rails (~> 6.0.0)
@@ -433,7 +437,7 @@ DEPENDENCIES
   selenium-webdriver
   specs_to_readme
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
   table_print
   turbo-rails
