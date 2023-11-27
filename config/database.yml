@@ -15,11 +15,10 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   adapter: sqlite3
@@ -84,10 +83,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
-  url: <%= ENV["DATABASE_URL"] %>
-  database: bookmark_server
-  username: bookmark_server_user
+  <<: *default
+  database: rails_template_production
+  username: rails_template
   password: <%= ENV["RAILS_TEMPLATE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
