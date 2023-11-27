@@ -5,7 +5,11 @@ class BooksController < ApplicationController
   def index
 
     @q = Book.ransack(params[:q])
-    @books = @q.result
+    @books = @q.result(distinct: true)
+    if params[:q] && params[:q][:genre_cont].present? 
+      excluded_word = 'nonfiction'
+      @books = @books.where.not(Book.arel_table[:genre].matches("%#{excluded_word}%"))
+    end
 
   end
 

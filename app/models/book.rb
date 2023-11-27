@@ -19,6 +19,6 @@ class Book < ApplicationRecord
   has_many :comments, as: :commentable
 
   def self.ransackable_attributes(auth_object = nil )
-    ["title", "author", "user_id"]
+    ["title", "author", "user_id", "genre"]
   end 
 end

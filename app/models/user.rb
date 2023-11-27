@@ -27,4 +27,8 @@ class User < ApplicationRecord
   has_many  :books, class_name: "Book", foreign_key: "user_id", dependent: :destroy
   has_many  :following, class_name: "Follow", foreign_key: "user_id", dependent: :destroy
   has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
+
+  def self.ransackable_attributes(auth_object = nil )
+    ["user_id", "commentable_id"]
+  end 
 end
