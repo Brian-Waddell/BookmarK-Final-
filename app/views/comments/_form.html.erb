@@ -11,20 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_field :body %>
-  </div>
+  <!-- Book or Comment you are commenting on -->
+  <%= form.hidden_field :commentable_type, value: comment.commentable_type %>
+  <%= form.hidden_field :commentable_id, value: comment.commentable.id %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :commentable, style: "display: block" %>
-    <%= form.number_field :commentable %>
-  </div>
+  <div class="mb-3">
+    <%= form.text_area :body, class: "form-control" %>
+  </div> 
 
   <div>
     <%= form.submit %>

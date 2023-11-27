@@ -3,11 +3,16 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+
+    @q = Book.ransack(params[:q])
+    @books = @q.result
+
   end
 
   # GET /books/1 or /books/1.json
   def show
+    @q = Comment.ransack(params[:q])
+    @results = @q.result.includes(:user_id, :commentable_id)
   end
 
   # GET /books/new
@@ -21,7 +26,7 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -65,6 +70,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :author, :summary, :genre, :publish_date, :user_id, :photo)
+      params.require(:book).permit(:title, :author, :summary, :genre, :publish_date, :photo)
     end
 end

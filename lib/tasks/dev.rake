@@ -7,8 +7,7 @@ namespace :dev do
     "db:create",
     "db:migrate",
     "db:seed",
-    "dev:sample_data",
-
+    "dev:sample_data"
   ]
 
   desc "Adds sample data for development environment"
@@ -19,7 +18,6 @@ namespace :dev do
     "dev:add_comments"
     ] do
     puts " done adding sample data"
-    # TODO
   end
 
   task add_users: :environment do 
@@ -39,29 +37,37 @@ namespace :dev do
 
   task add_books: :environment do
     50.times do |i| 
+
       b = Book.create(
         user_id: User.all.sample.id,
         title: Faker::Book.title,
         summary: Faker::Lorem.sentence,
         author: Faker::Book.author, 
-        genre: Faker::Book.genre
+        genre: Faker::Book.genre,
+       
       )
     end 
   end 
 
    task add_comments: :environment do 
       puts "adding comments"
-      Book.all.each do|b|
-        rand(1...5).times do
-          c = Comment.create(
-            user_id: User.all.sample.id,
-            body: Faker::Movies::HarryPotter.quote,
-            commentable_type: Faker::Books::Dune.quote,
-            commentable_id: b.user_id,
-            )
+      50.times do |i|
+        commentable = nil
+        if i.odd?
+          commentable = Comment.all.sample
+        else
+          commentable = Book.all.sample
         end
-      end 
-    end 
-    puts "The end"
+
+        c = Comment.create(
+          user_id: User.all.sample.id,
+          body: Faker::Movies::HarryPotter.quote,
+          commentable_type: commentable.class.name, 
+          commentable_id: commentable.id
+        )
+      end
+
+      puts "done"
+    end
   end 
 end 

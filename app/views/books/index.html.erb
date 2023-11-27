@@ -1,6 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Books</h1>
+<%= search_form_for @q do |f| %> 
+  <p> Filter your results:</p> 
+
+  <div>
+    <%= f.label :title_cont, "Title containing" %> 
+    <%= f.text_field :title_cont, :placeholder => "Enter a book " %> 
+  </div> 
+  
+
+  <div>
+    <%= f.label :author_cont, "Author containing" %> 
+    <%= f.text_field :author_cont, :placeholder => "Enter an author" %> 
+  </div> 
+
+<div>
+   <%= f.label :genre_cont, "Genre Search" %> 
+    <%= f.text_field :title_cont, :placeholder => "Enter a book " %> 
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %> 
+
+  <a href="/books"> Clear filers </a> 
+
+<% end %> 
+
 
 <div id="books">
   <% @books.each do |book| %>
@@ -11,4 +36,4 @@
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<%= link_to "New  book", new_book_path %>

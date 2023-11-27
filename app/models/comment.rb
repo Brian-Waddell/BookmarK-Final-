@@ -20,4 +20,16 @@ class Comment < ApplicationRecord
   has_many :comments, as: :commentable
 
   belongs_to :commentable, polymorphic: true
+
+  def root_commentable
+    if commentable.is_a?(Comment)
+      commentable.root_commentable
+    else
+      commentable
+    end
+  end
+
+  def self.ransackable_attributes(auth_object = nil )
+    ["user_id", "commentable_id"]
+  end 
 end
