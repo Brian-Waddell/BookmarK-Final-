@@ -7,4 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # TODO: change to real email
-User.create(email: "brian@example.com", username: "brian", password: "password")
+# User.create(email: "brianwddll2@gmail.com", username: "brian", password: "password")
