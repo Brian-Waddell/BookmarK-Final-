@@ -14,8 +14,11 @@
   <body>
     <%= render "shared/navbar" %> 
     <%= render "shared/flash" %>
-    <%= render "shared/breadcrumbs"%>
+
+   
     <div class ="container">
+     <%= render "shared/breadcrumbs"%>
     <%= yield %>
+    </div>
   </body>
 </html>

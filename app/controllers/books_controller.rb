@@ -11,7 +11,7 @@ class BooksController < ApplicationController
       @books = @books.where.not(Book.arel_table[:genre].matches("%#{excluded_word}%"))
     end
     @breadcrumbs = [
-      {content: "book", href: books_path}
+      {content: "Books", href: books_path}
       
     ]
   end

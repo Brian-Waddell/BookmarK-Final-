@@ -22,6 +22,6 @@ class Book < ApplicationRecord
     ["title", "author", "user_id", "genre"]
   end 
   def to_s 
-    " #{title.truncate(15)}..."
+    " #{title.truncate(15)}"
   end 
 end
