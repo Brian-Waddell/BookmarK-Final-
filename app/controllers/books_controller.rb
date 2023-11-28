@@ -20,19 +20,28 @@ class BooksController < ApplicationController
   def show
     @breadcrumbs = [
       {content: "book", href: books_path},
-      {content: @book.to_s, href: books_path(@title)},
+      {content: @book.to_s, href: book_path(@book)},
     ]
     @q = Comment.ransack(params[:q])
-    @results = @q.result.includes(:user_id, :commentable_id)
+    @results = @q.result.includes(:user_id, :commentable_id, :book_id)
   end
 
   # GET /books/new
   def new
+    @breadcrumbs = [
+      {content: "book", href: books_path},
+      {content: "New"},
+    ]
     @book = Book.new
   end
 
   # GET /books/1/edit
   def edit
+    @breadcrumbs = [
+      {content: "book", href: books_path},
+      {content: @book.to_s, href: book_path(@book)},
+      {content: "Edit"},
+    ]
   end
 
   # POST /books or /books.json

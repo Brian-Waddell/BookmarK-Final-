@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "New  book", new_book_path %>
+
 <h1>The Library</h1>
 <%= search_form_for @q do |f| %> 
   <p> Filter your results:</p> 
@@ -36,5 +38,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New  book", new_book_path %>
