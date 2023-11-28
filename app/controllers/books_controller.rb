@@ -10,11 +10,18 @@ class BooksController < ApplicationController
       excluded_word = 'nonfiction'
       @books = @books.where.not(Book.arel_table[:genre].matches("%#{excluded_word}%"))
     end
-
+    @breadcrumbs = [
+      {content: "book", href: books_path}
+      
+    ]
   end
 
   # GET /books/1 or /books/1.json
   def show
+    @breadcrumbs = [
+      {content: "book", href: books_path},
+      {content: @book.to_s, href: books_path(@title)},
+    ]
     @q = Comment.ransack(params[:q])
     @results = @q.result.includes(:user_id, :commentable_id)
   end

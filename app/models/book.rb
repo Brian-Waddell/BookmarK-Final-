@@ -21,4 +21,7 @@ class Book < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil )
     ["title", "author", "user_id", "genre"]
   end 
+  def to_s 
+    " #{title.truncate(15)}..."
+  end 
 end
