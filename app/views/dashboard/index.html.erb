@@ -1,12 +1,16 @@
-<h1> Hello Dashboard </h1>
+<h1 style= "font-family: cursive;"> Welcome Home <%= current_user.username.upcase %> </h1>
 
-<h2> The Dashboard todo: </h2>
-
-<ul>
-  <li> show the user graphics about books they read </li>
-  <li> show the user's graphs about the books they have favortie </li>
-</ul>
+<div>
+<h2 style="text-align: center;" > Book group by Genre </h2>
+<%= pie_chart Book.group(:genre).count %>
+<div>
 
 <p> The Bookmark application is for users who want to connect and chat about books they read. </p>
 
+<%= link_to "Your book favorites", new_book_path %>
 
+<div>
+
+<%= link_to "Comments", comments_path %>
+
+</div>
