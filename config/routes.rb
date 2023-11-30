@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources  :follows
+  post "add_to_favorites", to: 'follows#create', as: :add_to_favorites
   resources  :comments
   resources  :books
   resources  :dashboard 

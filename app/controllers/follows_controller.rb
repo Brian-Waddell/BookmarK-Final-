@@ -4,6 +4,8 @@ class FollowsController < ApplicationController
   # GET /follows or /follows.json
   def index
     @follows = Follow.all
+    
+   
   end
 
   # GET /follows/1 or /follows/1.json
@@ -21,7 +23,20 @@ class FollowsController < ApplicationController
 
   # POST /follows or /follows.json
   def create
-    @follow = Follow.new(follow_params)
+
+    @follows = Follow.all
+    
+    #book = Book.find(params[:book_id])
+    @follow = Follow.new
+    @follow.book_id = params[:book_id].to_i
+    @follow.user_id = current_user.id
+    #f.save
+
+    #follow = Follow.find(params[:book_id])
+    #  current_user.follow.create(book: @book)
+    #redirect_to @follow, notice: "Added to Favorites"
+
+    #@follow = Follow.new(follow_params)
 
     respond_to do |format|
       if @follow.save
