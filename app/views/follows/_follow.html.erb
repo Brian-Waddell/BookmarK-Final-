@@ -1,12 +1,22 @@
 <div id="<%= dom_id follow %>">
   <p>
     <strong>Book:</strong>
-    <%= follow.book_id %>
+    <%= follow.book.title%>
+  </p>
+
+   <p>
+    <strong>Author:</strong>
+    <%= follow.book.author%>
+  </p>
+
+<p>
+    <strong>Genre:</strong>
+    <%= follow.book.genre%>
   </p>
 
   <p>
     <strong>User:</strong>
-    <%= follow.user_id %>
+    <%= follow.user.username %>
   </p>
 
 </div>
