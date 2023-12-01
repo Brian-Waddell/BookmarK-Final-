@@ -1,7 +1,7 @@
 <div id="<%= dom_id follow %>">
   <p>
     <strong>Book:</strong>
-    <%= follow.book.title%>
+    <%= link_to follow.book.title, book_path(follow.book) %>
   </p>
 
    <p>

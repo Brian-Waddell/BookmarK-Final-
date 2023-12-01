@@ -1,16 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @book %>
-<form action="/add_to_favorites" method="post">
-   <input type="hidden" name="book_id" value="<%= @book.id %>" >
-  <input type="submit" value="Submit">
-</form>
-<%= form_with(url: '/add_to_favorites', method: 'post') do |form| %>
+
+<%= form_with model: Follow.new do |form| %>
   <%= form.hidden_field :book_id, value: @book.id %>
-  <%= form.submit 'Submit' %>
+  <%= form.submit 'Add to favorites', class: "btn btn-primary" %>
 <% end %>
 
-<%= button_to 'Add to Favorites', add_to_favorites_path(@book), method: :post %>
+
 <hr>
 
 <%= search_form_for @q do |f|%>

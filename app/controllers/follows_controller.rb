@@ -4,8 +4,6 @@ class FollowsController < ApplicationController
   # GET /follows or /follows.json
   def index
     @follows = Follow.all
-    
-   
   end
 
   # GET /follows/1 or /follows/1.json
@@ -23,24 +21,11 @@ class FollowsController < ApplicationController
 
   # POST /follows or /follows.json
   def create
-
-    @follows = Follow.all
-    
-    #book = Book.find(params[:book_id])
-    @follow = Follow.new
-    @follow.book_id = params[:book_id].to_i
-    @follow.user_id = current_user.id
-    #f.save
-
-    #follow = Follow.find(params[:book_id])
-    #  current_user.follow.create(book: @book)
-    #redirect_to @follow, notice: "Added to Favorites"
-
-    #@follow = Follow.new(follow_params)
+    @follow = current_user.following.new(follow_params)
 
     respond_to do |format|
       if @follow.save
-        format.html { redirect_to follow_url(@follow), notice: "Follow was successfully created." }
+        format.html { redirect_to book_url(@follow.book), notice: "Follow was successfully created." }
         format.json { render :show, status: :created, location: @follow }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -73,13 +58,14 @@ class FollowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_follow
-      @follow = Follow.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def follow_params
-      params.require(:follow).permit(:book_id, :user_id)
-    end
+  def set_follow
+    @follow = Follow.find(params[:id])
+  end
+
+  # Parameters: {"authenticity_token"=>"[FILTERED]", "book_id"=>"1", "commit"=>"Add to favorites"}
+  # Parameters: {"authenticity_token"=>"[FILTERED]", "follow"=>{"book_id"=>"1"}, "commit"=>"Add to favorites"}
+  def follow_params
+    params.require(:follow).permit(:book_id, :user_id)
+  end
 end
