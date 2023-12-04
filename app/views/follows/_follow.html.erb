@@ -9,11 +9,14 @@
       <p class="card-text"> <%= follow.book.summary%> </p>
       <%= link_to follow.book.title, book_path(follow.book) %> 
       <div>
-        <a href="/comments" class="card-link">Comments</a>
+        <button id= button type = button class="btn btn-secondary"">
+          <a href="/comments" class="card-link">Comments</a>
+        </button>
       </div>
-
-      
-       <%= image_tag 'trash.svg' %>
-      <%= class=  button_to "Delete", follow,  method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div>
+        
+        <%= image_tag 'trash.svg'  %> 
+        <%=  button_to "Delete", follow,  method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
   </div>
 </div>

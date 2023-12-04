@@ -1,41 +1,47 @@
-<p style="color: green"><%= notice %></p>
+<div>
+  <p style="color: green"><%= notice %></p>
 
-<%= link_to "Create a New  book to discuss", new_book_path %>
+  <%= link_to "Create a New  book to discuss", new_book_path %>
 
-<h1>The Library</h1>
-<%= search_form_for @q do |f| %> 
-  <p> Filter your results:</p> 
+  <h1>The Library</h1>
+  <%= search_form_for @q do |f| %> 
+    <p> Filter your results:</p> 
 
-  <div>
-    <%= f.label :title_cont, "Title containing" %> 
-    <%= f.text_field :title_cont, :placeholder => "Enter a book " %> 
-  </div> 
+    <div>
+      <%= f.label :title_cont, "Title containing" %> 
+      <%= f.text_field :title_cont, :placeholder => "Enter a book " %> 
+    </div> 
   
 
-  <div>
-    <%= f.label :author_cont, "Author containing" %> 
-    <%= f.text_field :author_cont, :placeholder => "Enter an author" %> 
-  </div> 
+    <div>
+      <%= f.label :author_cont, "Author containing" %> 
+      <%= f.text_field :author_cont, :placeholder => "Enter an author" %> 
+    </div> 
 
-<div>
-   <%= f.label :genre_cont, "Genre Search" %> 
-    <%= f.text_field :genre_cont, :placeholder => "i.e fiction " %> 
-  </div>
+    <div>
+      <%= f.label :genre_cont, "Genre Search" %> 
+      <%= f.text_field :genre_cont, :placeholder => "i.e fiction " %> 
+    
+    </div>
 
-
-  <%= f.submit :class => "btn btn-primary btn-block" %> 
+    <div>
+      <%= f.submit :class => "btn btn-primary btn-block" %> 
+    </div>
 
   <a href="/books"> Clear filers </a> 
 
 <% end %> 
 
 
-<div id="books">
+  <div id="books">
   <% @books.each do |book| %>
     <%= render book %>
     <p>
       <%= link_to "Show this book", book %>
     </p>
-   
+    <p>
+    <%= button_to "Destroy this book", @book, method: :delete %>
+    </p>
   <% end %>
+  
 </div>
