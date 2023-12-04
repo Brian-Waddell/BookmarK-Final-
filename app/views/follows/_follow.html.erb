@@ -1,22 +1,19 @@
-<div id="<%= dom_id follow %>">
-  <p>
-    <strong>Book:</strong>
-    <%= link_to follow.book.title, book_path(follow.book) %>
-  </p>
 
-   <p>
-    <strong>Author:</strong>
-    <%= follow.book.author%>
-  </p>
 
-<p>
-    <strong>Genre:</strong>
-    <%= follow.book.genre%>
-  </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= follow.user.username %>
-  </p>
+<div class="card" style="width: 18rem;" >
+  <div class="card-container">
+    <div class="card-body">
+      <h5 class="card-title"> <%= follow.book.title %> </h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary"> <%= follow.book.genre%> </h6>
+      <p class="card-text"> <%= follow.book.summary%> </p>
+      <%= link_to follow.book.title, book_path(follow.book) %> 
+      <div>
+        <a href="/comments" class="card-link">Comments</a>
+      </div>
 
+      
+       <%= image_tag 'trash.svg' %>
+      <%= class=  button_to "Delete", follow,  method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 </div>
