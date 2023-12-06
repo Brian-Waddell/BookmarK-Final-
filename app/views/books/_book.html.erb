@@ -1,36 +1,16 @@
-<div class= "card" >
-<div class= "card-body">
 
-<div id="<%= dom_id book %>" >
 
   
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
-
-  <p>
-    <strong>Summary:</strong>
-    <%= book.summary %>
-  </p>
-
-  <p>
-    <strong>Genre:</strong>
-    <%= book.genre %>
-  </p>
-
  
 
-  <p>
-    <strong>Who posted it:</strong>
-    <%= book.user.username %>
-  </p>
-
- 
-</div>
-</div>
-</div>
- 
-
- 
+ <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header"> <%= book.title %> </div>
+  <div class="card-body">
+  <h5 class="card-title">Genre: <%= book.genre %> </h5>
+  <h5 class="card-title">Author: <%= book.author %> </h5>
+  <p class="card-text">Summary: <%= book.summary %> </p>
+  <h5 class="card-title">Who posted it? <%= book.user.username.capitalize %> </h5>
+  <p> <%= link_to "Show this book", book %> </p>
+  <p> <%= button_to "Destroy this book", @book, method: :delete %> </p>
+ </div>
+ </div>

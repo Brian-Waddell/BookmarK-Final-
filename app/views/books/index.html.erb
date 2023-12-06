@@ -33,29 +33,10 @@
 
 <% end %> 
 </div> 
-<div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Dark card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
 
   <% @books.each do |book| %>
-  <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-body">
-  <div class="card-header"> <%= book.title %> </div>
    <%= render book %>
-   </div> 
-   </div> 
     
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
-
-    <p>
-    <%= button_to "Destroy this book", @book, method: :delete %>
-    </p>
    
   <% end %>
   
