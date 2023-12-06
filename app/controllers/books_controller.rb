@@ -3,9 +3,9 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-
+    
     @q = Book.ransack(params[:q])
-    @books = @q.result(distinct: true)
+    @books = authorize @q.result(distinct: true)
     if params[:q] && params[:q][:genre_cont].present? 
       excluded_word = 'nonfiction'
       @books = @books.where.not(Book.arel_table[:genre].matches("%#{excluded_word}%"))
@@ -14,6 +14,7 @@ class BooksController < ApplicationController
       {content: "Books", href: books_path}
       
     ]
+    
   end
 
   # GET /books/1 or /books/1.json
@@ -22,6 +23,8 @@ class BooksController < ApplicationController
       {content: "book", href: books_path},
       {content: @book.to_s, href: book_path(@book)},
     ]
+    @book
+
     @q = Comment.ransack(params[:q])
     @results = @q.result.includes(:user_id, :commentable_id, :book_id)
   end
@@ -61,6 +64,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+     @book
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
@@ -74,7 +78,7 @@ class BooksController < ApplicationController
 
   # DELETE /books/1 or /books/1.json
   def destroy
-    @book.destroy
+  @book.destroy
 
     respond_to do |format|
       format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
@@ -85,7 +89,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+     @book = authorize Book.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

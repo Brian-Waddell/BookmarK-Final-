@@ -20,7 +20,9 @@
     <div class= "card-body">
       <p><%= comment.body %></p>
       <p><%= comment.participant.username %></p>
+      <p> <%= comment.created_at%> </p>
       <%= button_to 'Delete', comment_path(comment), method: :delete, remote: true, class: 'delete-comment-btn' %>
+     
     </div>
     </div>
   <% end %>
@@ -28,11 +30,3 @@
 
 <h3> Add a comment </h3>
   <%= render "comments/form", comment: @book.comments.build %>
-
-
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  
-  
-  
-</div>

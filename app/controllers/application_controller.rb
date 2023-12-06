@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
+
+  after_action :verify_authorized, unless: :devise_controller? 
+  #after_action :verify_policy_scoped, only: :index, unless: :devise_controller? 
+  #skip_after_action :verify_authorized, only: :dashboard
+
   include Pundit::Authorization 
   before_action :authenticate_user!
 

@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   # POST /comments or /comments.json
@@ -49,6 +50,7 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    authorize @comment
     book = @comment.commentable 
     @comment.destroy
     
@@ -62,7 +64,7 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = authorize Comment.find(params[:id])
   end
 
   def comment_params
