@@ -36,14 +36,15 @@ namespace :dev do
   end
 
   task add_books: :environment do
-    50.times do |i| 
+    100.times do |i| 
 
       b = Book.create(
         user_id: User.all.sample.id,
         title: Faker::Book.title,
-        summary: Faker::Lorem.sentence,
+        summary: Faker::TvShows::TheOffice.quote,
         author: Faker::Book.author, 
         genre: Faker::Book.genre,
+       
        
       )
     end 
@@ -51,7 +52,7 @@ namespace :dev do
 
    task add_comments: :environment do 
       puts "adding comments"
-      50.times do |i|
+      250.times do |i|
         commentable = nil
         if i.odd?
           commentable = Comment.all.sample
@@ -61,7 +62,7 @@ namespace :dev do
 
         c = Comment.create(
           user_id: User.all.sample.id,
-          body: Faker::Movies::HarryPotter.quote,
+          body: Faker::Movies::HarryPotter.quote || Faker::TvShows::BigBangTheory.quote,
           commentable_type: commentable.class.name, 
           commentable_id: commentable.id
         )

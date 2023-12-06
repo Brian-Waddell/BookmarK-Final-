@@ -4,8 +4,9 @@
   <%= link_to "Create a New  book to discuss", new_book_path %>
 
   <h1>The Library</h1>
+  <div> 
   <%= search_form_for @q do |f| %> 
-    <p> Filter your results:</p> 
+    <h6> Filter your results:</h6> 
 
     <div>
       <%= f.label :title_cont, "Title containing" %> 
@@ -27,21 +28,34 @@
     <div>
       <%= f.submit :class => "btn btn-primary btn-block" %> 
     </div>
-
+ 
   <a href="/books"> Clear filers </a> 
 
 <% end %> 
+</div> 
+<div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Dark card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
 
-
-  <div id="books">
   <% @books.each do |book| %>
-    <%= render book %>
+  <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-body">
+  <div class="card-header"> <%= book.title %> </div>
+   <%= render book %>
+   </div> 
+   </div> 
+    
     <p>
       <%= link_to "Show this book", book %>
     </p>
+
     <p>
     <%= button_to "Destroy this book", @book, method: :delete %>
     </p>
+   
   <% end %>
   
-</div>

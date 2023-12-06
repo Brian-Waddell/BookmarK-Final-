@@ -1,4 +1,4 @@
-class BookPolicy < ApplicationPolicy
+class FollowsPolicy < ApplicationPolicy
   
   def index?
     true 

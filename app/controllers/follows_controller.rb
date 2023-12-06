@@ -60,7 +60,7 @@ class FollowsController < ApplicationController
   private
 
   def set_follow
-    @follow = Follow.find(params[:id])
+    @follow = authorize Follow.find(params[:id])
   end
 
   # Parameters: {"authenticity_token"=>"[FILTERED]", "book_id"=>"1", "commit"=>"Add to favorites"}

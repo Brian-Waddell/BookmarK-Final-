@@ -20,9 +20,9 @@
     <div class= "card-body">
       <p><%= comment.body %></p>
       <p><%= comment.participant.username %></p>
-      <p> <%= comment.created_at%> </p>
+      <p> <%= comment.created_at.strftime("%m/%d/%Y" " %I:%M:%S%P") %> </p>
       <%= button_to 'Delete', comment_path(comment), method: :delete, remote: true, class: 'delete-comment-btn' %>
-     
+      <%= link_to 'Edit', edit_comment_path(comment) %>
     </div>
     </div>
   <% end %>
