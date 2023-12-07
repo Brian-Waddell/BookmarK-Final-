@@ -9,7 +9,6 @@
 # TODO: change to real email
  #User.create(email: "brianwddll2@gmail.com", username: "brian", password: "password")
 
- unless Rails.env.production?
  
      names = ["brian", "alice", "bob", "calvin"]
  
@@ -56,7 +55,5 @@
        end
  
        puts "done"
-     end
-   end 
- end 
+    
  
