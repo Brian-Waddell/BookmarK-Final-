@@ -10,7 +10,20 @@
   <h5 class="card-title">Author: <%= book.author %> </h5>
   <p class="card-text">Summary: <%= book.summary %> </p>
   <h5 class="card-title">Who posted it? <%= book.user.username.capitalize %> </h5>
-  <p> <%= link_to "Show this book", book %> </p>
+  <p> <button type="button" id= "showBookBtn" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Show this bookzzzzz
+</button> 
+
+<!--<%= button_to "Show this book", book_path(book), method: :get, class: "btn btn-primary"  %> --> 
+<p> <%= link_to "Show this book", book %> </p>
+<script>
+    
+    document.getElementById('showBookBtn').addEventListener('click', function() {
+      // Replace 'your-book-show-page.html' with the actual URL of your book show page
+      window.location.href = "<%= book_path(book) %>";
+    });
+  </script>
+
   <p> <%= button_to "Destroy this book", @book, method: :delete %> </p>
  </div>
  </div>
