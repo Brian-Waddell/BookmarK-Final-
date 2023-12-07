@@ -5,9 +5,9 @@
 <%= form_with model: Follow.new do |form| %>
   <%= form.hidden_field :book_id, value: @book.id %>
   <button type="submit" id= "favoriteBtn"  class="btn btn-danger">
-    <i class="fas fa-heart"></i> Submit
+    <i class="fas fa-heart"></i> Add to favorites
       </button>
-  <%= form.submit 'Add to favorites', class: "btn btn-primary" %>
+ 
 <% end %>
 
 <script>

@@ -11,18 +11,19 @@
   <p class="card-text">Summary: <%= book.summary %> </p>
   <h5 class="card-title">Who posted it? <%= book.user.username.capitalize %> </h5>
    
-   <button type="button" id= "showBookBtn" class="btn btn-outline-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+  <!-- <button type="button" id= "showBookBtn" class="btn btn-outline-success" data-toggle="button" aria-pressed="false" autocomplete="off">
   Show this book
-</button> 
+</button> --> 
 
-<!--<%= button_to "Show this book", book_path(book), method: :get, class: "btn btn-primary"  %> --> 
+<%= button_to "Show this book", book_path(book), method: :get, class: "btn btn-outline-success"  %>
 
-<script>
+<!-- <script>
     document.getElementById('showBookBtn').addEventListener('click', function() {
       // Replace 'your-book-show-page.html' with the actual URL of your book show page
       window.location.href = "<%= book_path(book) %>";
     });
   </script>
+  --> 
  <% if current_user && book.user_id == current_user.id %>
   <p> <%= button_to "Destroy this book", @book, method: :delete,  class: "btn btn-outline-danger" %> </p>
   <%end%>
