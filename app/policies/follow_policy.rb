@@ -1,4 +1,4 @@
-class FollowsPolicy < ApplicationPolicy
+class FollowPolicy < ApplicationPolicy
   
   def index?
     true 
