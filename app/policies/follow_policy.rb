@@ -1,6 +1,7 @@
 class FollowPolicy < ApplicationPolicy
   
   def index?
+    
     true 
   end
 
@@ -24,6 +25,6 @@ class FollowPolicy < ApplicationPolicy
   private 
 
   def owner? 
-    record.user == @user.id
+    record.user_id == @user.id
   end 
 end

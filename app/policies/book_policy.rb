@@ -24,6 +24,6 @@ class BookPolicy < ApplicationPolicy
   private 
 
   def owner? 
-    record.user == @user.id
+    record.user_id == @user.id
   end 
 end

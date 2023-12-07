@@ -25,7 +25,7 @@
   </script>
   --> 
  <% if current_user && book.user_id == current_user.id %>
-  <p> <%= button_to "Destroy this book", @book, method: :delete,  class: "btn btn-outline-danger" %> </p>
+  <p> <%= button_to "Destroy this book", book, method: :delete,  class: "btn btn-outline-danger" %> </p>
   <%end%>
  </div>
  </div>

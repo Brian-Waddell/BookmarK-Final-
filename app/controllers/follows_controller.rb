@@ -3,7 +3,11 @@ class FollowsController < ApplicationController
 
   # GET /follows or /follows.json
   def index
-    @follows = authorize Follow.all
+
+    @follows =  Follow.all
+
+    authorize @follows
+    
   end
 
   # GET /follows/1 or /follows/1.json
@@ -21,11 +25,11 @@ class FollowsController < ApplicationController
 
   # POST /follows or /follows.json
   def create
-    @follow = current_user.following.new(follow_params)
+    @follow = authorize current_user.following.new(follow_params)
 
     respond_to do |format|
       if @follow.save
-        format.html { redirect_to book_url(@follow.book), notice: "Follow was successfully created." }
+        format.html { redirect_to book_url(@follow.book_id), notice: "Follow was successfully created." }
         format.json { render :show, status: :created, location: @follow }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +69,7 @@ class FollowsController < ApplicationController
 
   # Parameters: {"authenticity_token"=>"[FILTERED]", "book_id"=>"1", "commit"=>"Add to favorites"}
   # Parameters: {"authenticity_token"=>"[FILTERED]", "follow"=>{"book_id"=>"1"}, "commit"=>"Add to favorites"}
+  
   def follow_params
     params.require(:follow).permit(:book_id, :user_id)
   end
