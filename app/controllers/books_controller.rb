@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books or /books.json
   def index
     
-    @q = Book.ransack(params[:q])
+    @q =  Book.ransack(params[:q])
     @books = authorize @q.result(distinct: true)
     if params[:q] && params[:q][:genre_cont].present? 
       excluded_word = 'nonfiction'

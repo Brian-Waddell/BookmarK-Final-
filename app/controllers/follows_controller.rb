@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
 
   # GET /follows or /follows.json
   def index
-    @follows = Follow.all
+    @follows = authorize Follow.all
   end
 
   # GET /follows/1 or /follows/1.json

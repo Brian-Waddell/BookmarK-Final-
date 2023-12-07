@@ -4,10 +4,18 @@
 
 <%= form_with model: Follow.new do |form| %>
   <%= form.hidden_field :book_id, value: @book.id %>
+  <button type="submit" id= "favoriteBtn"  class="btn btn-danger">
+    <i class="fas fa-heart"></i> Submit
+      </button>
   <%= form.submit 'Add to favorites', class: "btn btn-primary" %>
 <% end %>
 
-
+<script>
+    document.getElementById('favoriteBtn).addEventListener('click', function() {
+      // Replace 'your-book-show-page.html' with the actual URL of your book show page
+      window.location.href = "<%= follows_path %>";
+    });
+  </script>
 <hr>
 
 
@@ -22,8 +30,8 @@
       <p><%= comment.participant.username.capitalize %></p>
       <p> <%= comment.created_at.strftime("%m/%d/%Y" " %I:%M:%S%P") %> </p>
       <% if current_user && comment.user_id == current_user.id %>
-      <%= button_to 'Delete', comment_path(comment), method: :delete, remote: true, class: 'delete-comment-btn' %>
-      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= button_to 'Delete', comment_path(comment), method: :delete, remote: true, class: 'btn btn-outline-danger' %>
+      <%= button_to 'Edit', edit_comment_path(comment), method: :get, class: "btn btn-outline-warning" %>
       <% end %>
     </div>
     </div>
