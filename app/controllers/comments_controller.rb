@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1 or /comments/1.json
   def show
+    @user = current_user
+    @commented_book_count = @user.comments.distinct.count(:user_id)
   end
 
   # GET /comments/new
