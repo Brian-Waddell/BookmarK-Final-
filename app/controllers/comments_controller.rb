@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ :show :edit :update :destroy ]
+  before_action :set_comment, only: [ :show, :edit, :update, :destroy ]
+  before_action { authorize(@comment || Comment)}
 
   # GET /comments or /comments.json
   def index
@@ -7,9 +8,7 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1 or /comments/1.json
-  def show
-    @user = current_user
-    @commented_book_count = @user.comments.distinct.count(:user_id)
+  def show  
   end
 
   # GET /comments/new
@@ -19,7 +18,6 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @comment = Comment.find(params[:id])
   end
 
   # POST /comments or /comments.json
@@ -52,7 +50,6 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    
     book = @comment.commentable 
     @comment.destroy
     
@@ -66,7 +63,7 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    @comment = authorize Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def comment_params
