@@ -8,10 +8,10 @@
 <div> 
   <h2 style= "text-align: center;"> <%= current_user.username.capitalize %>'s Commented Books </h2> 
 
-  <%= column_chart({ name: 'Books Commented On', data: {'Total' => @commented_books_count}}) %> 
+  <%=  { name: 'Books Commented On', data: { 'Total' =>  @commented_book_count} } %> 
 </div> 
 
-<p> The Bookmark application is for users who want to connect and chat about books they read. </p>
+
 
 <div>
 
