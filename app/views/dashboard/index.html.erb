@@ -8,7 +8,7 @@
 <div> 
   <h2 style= "text-align: center;"> <%= current_user.username.capitalize %>'s Commented Books </h2> 
 
-  <%=  { name: 'Books Commented On', data: { 'Total' =>  @commented_book_count} } %> 
+  <%= column_chart({ name: 'Books Commented On', data: { 'Total' =>  @commented_book_count} }) %> 
 </div> 
 
 
