@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ :show :edit :update :destroy ]
 
   # GET /comments or /comments.json
   def index
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = current_user.comments.new(comment_params)
+    @comment = authorize current_user.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    authorize @comment
+    
     book = @comment.commentable 
     @comment.destroy
     

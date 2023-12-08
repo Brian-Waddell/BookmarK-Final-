@@ -16,7 +16,7 @@
       <div>
        <!--  <% if current_user && follow.user_id == current_user.id %> --> 
         <%= image_tag 'trash.svg'  %> 
-        <%=  button_to "Delete", follow,  method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%=  button_to "Delete", follow, class: "btn btn-outline-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
         
         <% end %>
       </div>
