@@ -31,11 +31,14 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    
+
     @breadcrumbs = [
       {content: "book", href: books_path},
       {content: "New"},
     ]
     @book = Book.new
+    authorize @book
   end
 
   # GET /books/1/edit
@@ -49,7 +52,10 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    
+
     @book = current_user.books.new(book_params)
+    authorize @book 
 
     respond_to do |format|
       if @book.save

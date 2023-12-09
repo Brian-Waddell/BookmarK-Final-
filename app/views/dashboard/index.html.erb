@@ -2,13 +2,13 @@
 
 <div>
 <h2 style="text-align: center;" > Book group by Genre </h2>
-<%= pie_chart Book.group(:genre).count %>
+<%= line_chart Book.group(:genre).count %>
 <div>
 
 <div> 
-  <h2 style= "text-align: center;"> <%= current_user.username.capitalize %>'s Commented Books </h2> 
-
-  <%= column_chart({ name: 'Books Commented On', data: { 'Total' =>  @commented_book_count} }) %> 
+  <h2 style= "text-align: center;">  Users Commented Books </h2> 
+  <%= pie_chart Comment.joins(:participant).group('users.username').count %>
+  
 </div> 
 
 

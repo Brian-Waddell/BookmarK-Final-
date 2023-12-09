@@ -9,15 +9,16 @@
       <p class="card-text"> <%= follow.book.summary%> </p>
       <%= link_to follow.book.title, book_path(follow.book) %> 
       <div>
-        <button id= button type = button class="btn btn-secondary"">
+        <button id= button type = button class="btn btn-outline-info">
           <a href="/comments" class="card-link">Comments</a>
         </button>
       </div>
       <div>
        <!--  <% if current_user && follow.user_id == current_user.id %> --> 
+       
         <%= image_tag 'trash.svg'  %> 
         <%=  button_to "Delete", follow, class: "btn btn-outline-danger",  method: :delete, data: { confirm: 'Are you sure?' } %>
-        
+       
         <% end %>
       </div>
   </div>
