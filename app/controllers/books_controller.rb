@@ -38,6 +38,7 @@ class BooksController < ApplicationController
       {content: "New"},
     ]
     @book = Book.new
+    @book.user_id = current_user.id
     authorize @book
   end
 
