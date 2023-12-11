@@ -13,7 +13,8 @@
        <!--  <% if current_user && follow.user_id == current_user.id %> --> 
        
        <div style ="padding: 5px 3px 0 5px; justify-content: left; " >
-        <%=  button_to "Delete", follow, class: "btn btn-outline-danger",  method: :delete, data: { confirm: 'Are you sure?'}%>
+       <i class="fa-solid fa-heart-crack"></i>
+        <%=  button_to "Unfollow", follow, class: "btn btn-outline-danger",  method: :delete, data: { confirm: 'Are you sure?'}%>
        </div>
         <% end %>
       </div>

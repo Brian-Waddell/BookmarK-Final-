@@ -22,6 +22,25 @@
   position: relative;   
 }
 
+.beating-heart {
+  animation: beat 1s infinite; 
+
+  @keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+      }
+    }
+}
+
+.heart-icon {
+  font-size: 2em; /* Adjust the size as needed */
+  color: red;    /* Optional: Set the color of the heart */
+  /* Add other styles if necessary */
+}
+
 /* 
 .card {
   width: 300px; 
