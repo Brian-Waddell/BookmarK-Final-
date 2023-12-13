@@ -1,3 +1,35 @@
+Welcome to Bookmark application the goal of this web based ruby application is for users to post comments about different books they have read. 
+The goal of the application is for mainly school kids so they may be able to comminicate with each other over long distances. Book clubs could also 
+benefit from the use of this tool. 
+
+
+Pain Point- The problem I am addressing has to deal with connecting people avid and novel readers. 
+
+Trying to host an in person book discussion becomes hard to find time and the physical space. 
+
+User Story 
+
+As a user, I want to be able to search for books by their name that will allow me to quickly find interesting groups to join
+
+As a user, I want to register for an account to create and manage my book club groups
+
+As a user, I want a dashboard that shows the groups that I am apart of and give me quick acccess to these groups.
+
+As a user, I want to be able to upload a profile picture, so that I can personalize my profile.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Rails Template
 
 This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).

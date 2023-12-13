@@ -1,9 +1,10 @@
 
 
 
-<div class="card text-bg-light mb-3" style="max-width: 18rem;">
+<div class="card text-bg-light mb-3" style="max-width: 20rem;">
   <div class="cards-container">
     <div class="card-body">
+
       <h5 class="card-title"> <%= link_to follow.book.title, book_path(follow.book) %> </h5>
       <h6 class="card-subtitle mb-2 text-body-secondary"> <%= follow.book.genre%> </h6>
       <p class="card-text"> <%= follow.book.summary%> </p>
@@ -19,6 +20,24 @@
 
         <% end %>
       </div>
+
+      <h5 class="card-title">
+        <%= link_to follow.book.title, book_path(follow.book) %>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        <%= follow.book.genre %>
+      </h6>
+      <p class="card-text">
+        <%= follow.book.summary %>
+      </p>
+      
+       
+      <div style="padding: 5px 3px 0 5px; justify-content: left;">
+        <i class="fa-solid fa-heart-crack"></i>
+        <%= button_to "Unfollow", follow, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure'} %>
+      </div>
+      
+
     </div>
   </div>
 </div>
