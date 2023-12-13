@@ -40,7 +40,9 @@
   color: red;    /* Optional: Set the color of the heart */
   /* Add other styles if necessary */
 }
-
+#navbar{
+  position: "fixed;"
+}
 /* 
 .card {
   width: 300px; 
