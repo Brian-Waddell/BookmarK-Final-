@@ -1,8 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1> Your Favorites </h1>
+<div class="beating-heart">
+  <i class="fas fa-heart heart-icon" ></i>
+</div>
 
-<div id="follows">
+
+<hr>
+
+<div class="cards-container">
   <% @follows.each do |follow| %>
     <%= render follow %>
   <% end %>
