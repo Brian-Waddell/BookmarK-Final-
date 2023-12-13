@@ -1,12 +1,13 @@
 <div>
   <p style="color: green"><%= notice %></p>
-  <body style="margin: 0; padding: 0; font-family: 'Your Font', sans-serif; overflow-x: hidden;">
+  
     <div style="background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2815&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
 
   <%= link_to "Create a New  book to discuss", new_book_path %>
 
 
   <h1 class= "color">The Library</h1>
+  
   <div> 
   <%= search_form_for @q do |f| %> 
     <h6 class = "color"> Filter your results:</h6> 
@@ -34,8 +35,9 @@
  
   <a href="/books"> Clear filers </a> 
 
-<% end %> 
+   <% end %> 
 </div> 
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% @books.each do |book| %>
    <%= render book %>
