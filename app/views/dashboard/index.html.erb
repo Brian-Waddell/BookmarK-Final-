@@ -1,7 +1,9 @@
 <h1 style= "font-family: cursive;"> Welcome Home <%= current_user.username.upcase %> </h1>
-
 <div>
-<h2 style="text-align: center;" > Book group by Genre </h2>
+  <p> <strong> Welcome to Bookmark a web application where you can give your comments about a book and ask question to other users </strong> </p>
+</div>
+<div>
+<h2 style="text-align: center; padding: 10px; " > Book Collection Group by Genre </h2>
 <%= line_chart Book.group(:genre).count %>
 <div>
 
@@ -24,8 +26,3 @@
 <%= link_to "Your book favorites", follows_path %>
 </div>
 
-<div>
-
-<%= link_to "Comments", comments_path %>
-
-</div>

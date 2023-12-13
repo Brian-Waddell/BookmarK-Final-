@@ -1,53 +1,41 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
-
-.cards-container{
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1 fr)); 
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 10px;
-  position: relative;   
+  position: relative;
 }
 
 .beating-heart {
-  animation: beat 1s infinite; 
+  animation: beat 1s infinite;
 
   @keyframes beat {
     0%, 100% {
-        transform: scale(1);
+      transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
-      }
+      transform: scale(1.1);
     }
+  }
 }
 
 .heart-icon {
-  font-size: 2em; /* Adjust the size as needed */
-  color: red;    /* Optional: Set the color of the heart */
-  /* Add other styles if necessary */
+  font-size: 2em;
+  color: red;
 }
-#navbar{
-  position: "fixed;"
+
+#navbar {
+  position: fixed;
 }
-/* 
+
 .card {
-  width: 300px; 
-  border: 1px solid #ddd; 
-  margin: 10px; 
+  width: 300px;
+  border: 1px solid #ddd;
+  margin: 10px;
   padding: 10px;
 }
- */
+
+.color {
+  color: white;
+  padding: 5px;
+}

@@ -6,23 +6,23 @@
   <%= link_to "Create a New  book to discuss", new_book_path %>
 
 
-  <h1 style="color:white;">The Library</h1>
+  <h1 class= "color">The Library</h1>
   <div> 
   <%= search_form_for @q do |f| %> 
-    <h6 style="color:white;"> Filter your results:</h6> 
+    <h6 class = "color"> Filter your results:</h6> 
 
-    <div style="color:white;">
+    <div class = "color">
       <%= f.label :title_cont, "Title containing" %> 
       <%= f.text_field :title_cont, :placeholder => "Enter a book " %> 
     </div> 
   
 
-    <div style="color:white;">
+    <div class = "color">
       <%= f.label :author_cont, "Author containing" %> 
       <%= f.text_field :author_cont, :placeholder => "Enter an author" %> 
     </div> 
 
-    <div style="color:white;">
+    <div class = "color">
       <%= f.label :genre_cont, "Genre Search" %> 
       <%= f.text_field :genre_cont, :placeholder => "i.e fiction " %> 
     

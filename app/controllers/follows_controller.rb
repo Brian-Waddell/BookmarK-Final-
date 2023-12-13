@@ -1,29 +1,21 @@
 class FollowsController < ApplicationController
-  before_action :set_follow, only: %i[ show edit update destroy ]
+  before_action :set_follow, only: %i[show edit update destroy]
 
-  # GET /follows or /follows.json
   def index
-
-    @follows =  Follow.all
-
+    @follows = Follow.all
     authorize @follows
-    
   end
 
-  # GET /follows/1 or /follows/1.json
   def show
   end
 
-  # GET /follows/new
   def new
     @follow = Follow.new
   end
 
-  # GET /follows/1/edit
   def edit
   end
 
-  # POST /follows or /follows.json
   def create
     @follow = authorize current_user.following.new(follow_params)
 
@@ -38,7 +30,6 @@ class FollowsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /follows/1 or /follows/1.json
   def update
     respond_to do |format|
       if @follow.update(follow_params)
@@ -51,7 +42,6 @@ class FollowsController < ApplicationController
     end
   end
 
-  # DELETE /follows/1 or /follows/1.json
   def destroy
     @follow.destroy
 
@@ -67,9 +57,6 @@ class FollowsController < ApplicationController
     @follow = authorize Follow.find(params[:id])
   end
 
-  # Parameters: {"authenticity_token"=>"[FILTERED]", "book_id"=>"1", "commit"=>"Add to favorites"}
-  # Parameters: {"authenticity_token"=>"[FILTERED]", "follow"=>{"book_id"=>"1"}, "commit"=>"Add to favorites"}
-  
   def follow_params
     params.require(:follow).permit(:book_id, :user_id)
   end
