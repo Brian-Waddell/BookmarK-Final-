@@ -20,7 +20,7 @@ Trying to host an in person book discussion becomes hard to find time and the ph
 
 User Story 
 
-As a user, I want to be able to search for books by their name that will allow me to quickly find interesting groups to join
+As a user, I want to be able to quickly search for books by their name, genre, or author name
 
 As a user, I want to register for an account to create and manage my book club groups
 
@@ -28,6 +28,9 @@ As a user, I want a dashboard that shows the groups that I am apart of and give 
 
 As a user, I want to be able to upload a profile picture, so that I can personalize my profile.
 
+As a user, I want to be able to add more books to the general collection where other users can see and comment on. 
+
+As a user, I want to add books to a favorite collection. 
 
 
 
@@ -40,6 +43,3 @@ As a user, I want to be able to upload a profile picture, so that I can personal
 
 
 
-
-
-- vortizhe.simple-ruby-erb
