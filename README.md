@@ -28,12 +28,6 @@ As a user, I want a dashboard that shows the groups that I am apart of and give 
 
 As a user, I want to be able to upload a profile picture, so that I can personalize my profile.
 
-As a user, I want to be able to search for books by their name to find the book I want to comment/ask questions
-As a user I would like to see the entire collection of books and have them grouped by some type like use date etc. 
-As a user, I want to register for an account 
-As a user I want to to edit and delete the comments I posted. 
-As a user, I want a dashboard that shows the groups that I am apart of. 
-
 
 
 
