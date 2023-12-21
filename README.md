@@ -2,6 +2,18 @@ Welcome to Bookmark application the goal of this web based ruby application is f
 The goal of the application is mainly for school kids so they may be able to comminicate with each other over long distances and connect with more than just thier classmates. The comments created on the app regarding a book provides a diversity of input. Students can ask questions and claifacation other users to better understand the book they are reading. 
 
 
+How to use Bookmark 
+
+Users will Signup/SignIn page which will take you to your Dashboard 
+
+Users will be able to naviagte to the library and add a book or search for the book you wish to add comments on
+
+Users will then add comments and ask questions about the book. 
+
+
+
+
+
 Pain Point- The problem I am addressing has to deal with helping students understand more about a particular book and connecting people. 
 
 Trying to host an in person book discussion becomes hard to find time and the physical space, long distance may also be a problem. 
