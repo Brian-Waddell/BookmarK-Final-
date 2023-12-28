@@ -32,3 +32,9 @@
   color: white;
   padding: 5px;
 }
+.btn-unfollow {
+  position: relative;
+  bottom: 5px;
+  right: 15px;
+  margin: 10px;
+}
